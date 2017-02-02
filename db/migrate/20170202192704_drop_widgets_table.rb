@@ -1,0 +1,22 @@
+class DropWidgetsTable < ActiveRecord::Migration[5.0]
+  def change
+    reversible do |dir|
+      dir.up do
+        drop_table :widgets
+      end
+      dir.down do
+        create_table :widgets do |t|
+          t.string    :first_name
+          t.string    :last_name
+          t.string    :dietary_restrictions
+          t.decimal   :salary
+          t.integer   :number_of_kids
+          t.string    :vulnerabilities
+          t.string    :illnesses
+          t.string    :medication
+          t.string    :voting_preferences
+        end
+      end
+    end
+  end
+end
